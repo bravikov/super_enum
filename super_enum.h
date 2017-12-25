@@ -58,6 +58,9 @@ private:
         static Container archive;
         return archive;
     }
+
+    SuperEnum(const SuperEnum& other);
+    SuperEnum& operator=(const SuperEnum& other);
 };
 
 template<typename T>

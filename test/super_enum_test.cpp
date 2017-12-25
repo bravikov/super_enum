@@ -32,6 +32,7 @@ public:
 private Q_SLOTS:
     void testMyEnumElement();
     void testMyEnumElement2();
+    void testDeleting();
 };
 
 SuperEnumTest::SuperEnumTest()
@@ -77,6 +78,20 @@ void SuperEnumTest::testMyEnumElement2()
     QVERIFY(e12 == 12);
     QVERIFY(&e0 == MyEnum2::object(0));
     QVERIFY(&em20 == MyEnum2::object(-20));
+}
+
+void SuperEnumTest::testDeleting()
+{
+    MyEnum *e500 = new MyEnum{500};
+    MyEnum *e501 = new MyEnum{};
+    QVERIFY(*e500 == 500);
+    QVERIFY(*e501 == 501);
+    delete e501;
+    e501 = new MyEnum{};
+    QVERIFY2(*e501 == 501, qPrintable(QString{"%1"}.arg(*e501)));
+
+    delete e501;
+    delete e500;
 }
 
 QTEST_APPLESS_MAIN(SuperEnumTest)

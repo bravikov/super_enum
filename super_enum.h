@@ -95,6 +95,13 @@ template<typename T>
 SuperEnum<T>::~SuperEnum()
 {
     getArchive().erase(m_value);
+
+    if (getArchive().empty()) {
+        m_freeValue = 0;
+        return;
+    }
+
+    m_freeValue = getArchive().rbegin()->first + 1;
 }
 
 template<typename T>

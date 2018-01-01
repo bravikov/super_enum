@@ -5,15 +5,28 @@
 class MyEnum: public SuperEnum<MyEnum>
 {
 public:
-    MyEnum() = default;
+    MyEnum() {}
     explicit MyEnum(const int &value): SuperEnum(value) {}
 
-    static const MyEnum e1;
-    static const MyEnum e2;
+    static const MyEnum element1;
+    static const MyEnum element2;
 };
 
-const MyEnum MyEnum::e1{1};
-const MyEnum MyEnum::e2{2};
+const MyEnum MyEnum::element1{1};
+const MyEnum MyEnum::element2{2};
+
+class MyEnum1: public MyEnum
+{
+public:
+    MyEnum1() {}
+    explicit MyEnum1(const int &value): MyEnum(value) {}
+
+    static const MyEnum1 element3;
+    static const MyEnum1 element4;
+};
+
+const MyEnum1 MyEnum1::element3{3};
+const MyEnum1 MyEnum1::element4{4};
 
 class MyEnum2: public SuperEnum<MyEnum2>
 {
@@ -41,18 +54,24 @@ SuperEnumTest::SuperEnumTest()
 
 void SuperEnumTest::testMyEnumElement()
 {
-    MyEnum e3;
-    MyEnum e4;
     MyEnum e5;
-    QVERIFY(MyEnum::e1 == 1);
-    QVERIFY(MyEnum::e2 == 2);
-    QVERIFY(e3 == 3);
-    QVERIFY(e4 == 4);
+    MyEnum e6;
+    MyEnum e7;
+    QVERIFY(MyEnum::element1 == 1);
+    QVERIFY(MyEnum::element2 == 2);
     QVERIFY(e5 == 5);
-    QVERIFY(MyEnum::size() == 5);
-    QVERIFY(e3.size() == 5);
-    QVERIFY(&MyEnum::e1 == MyEnum::object(1));
-    QVERIFY(&MyEnum::e1 == e3.object(1));
+    QVERIFY(e6 == 6);
+    QVERIFY(e7 == 7);
+    QVERIFY(MyEnum::size() == 7);
+    QVERIFY(e5.size() == 7);
+    QVERIFY(&MyEnum::element1 == MyEnum::object(1));
+    QVERIFY(&MyEnum::element1 == e5.object(1));
+
+    const MyEnum *e1 = &MyEnum1::element1;
+    const MyEnum &e3 = MyEnum1::element3;
+
+    QVERIFY(*e1 == 1);
+    QVERIFY(e3 == 3);
 }
 
 void SuperEnumTest::testMyEnumElement2()

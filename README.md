@@ -18,7 +18,6 @@ C++ does not allow adding elements to an enumeration outside this expression. Bu
 
 There are different [ways](https://stackoverflow.com/questions/644629/base-enum-class-inheritance) to make an extendable or inheritable enumeration.
 
-
 ## Features of ```SuperEnum```
 
 * Automatic numbering of elements.
@@ -79,7 +78,7 @@ You can create new elements as usual variables:
 ``` cpp
 const MyEnum element4;
 const MyEnum element5;
-````
+```
 
 or as members of a derived class:
 
@@ -107,7 +106,7 @@ std::cout << MyEnum2::element3;
 
 You must pass the elements as references or pointers.
 
-```
+```cpp
 // Example 1
 void fun(const MyEnum2 *element);
 void fun(const MyEnum2 &element);
@@ -116,3 +115,4 @@ void fun(const MyEnum2 &element);
 const MyEnum *e1 = &MyEnum2::element1;
 const MyEnum &e2 = MyEnum2::element2;
 ```
+

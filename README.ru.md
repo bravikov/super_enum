@@ -77,7 +77,7 @@ std::cout << MyEnum::element3;
 ``` cpp
 const MyEnum element4;
 const MyEnum element5;
-````
+```
 
 или как члены производного класса:
 
@@ -105,7 +105,7 @@ std::cout << MyEnum2::element3;
 
 Передавать элементы следует как ссылки или указатели.
 
-```
+```cpp
 // Пример 1
 void fun(const MyEnum2 *element);
 void fun(const MyEnum2 &element);

@@ -71,7 +71,7 @@ Accessing to the elements is done as follows:
 
 ```cpp
 std::cout << MyEnum::element3;
-// Вывод: 3
+// Output: 3
 ```
 
 You can create new elements as usual variables:
@@ -102,7 +102,7 @@ In last case, you can access to the elements of the base class through the deriv
 
 ```cpp
 std::cout << MyEnum2::element3;
-// Вывод: 3
+// Output: 3
 ```
 
 You must pass the elements as references or pointers.

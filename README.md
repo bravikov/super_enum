@@ -2,7 +2,7 @@
 
 Read this in other languages: [Russian](README.ru.md).
 
-The project provides a class SuperEnum.
+The project provides a class ```SuperEnum```.
 
 ```SuperEnum``` is a C++ template class which allows to make expandable enumeration.
 

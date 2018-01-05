@@ -87,7 +87,7 @@ class MyEnum2: public MyEnum
 {
 public:
     MyEnum2() {}
-    explicit MyEnum1(const int &value): MyEnum(value) {}
+    explicit MyEnum2(const int &value): MyEnum(value) {}
 
     static const MyEnum2 element4;
     static const MyEnum2 element5;
